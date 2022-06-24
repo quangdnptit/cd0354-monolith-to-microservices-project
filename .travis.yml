@@ -17,8 +17,19 @@ script:
   - docker --version 
   - docker build -t udagram-api-user ./udagram-api-user
   - docker tag udagram-api-user quang1/udagram-api-user:v1
+  - docker build -t udagram-api-feed ./udagram-api-feed
+  - docker tag udagram-api-feed quang1/udagram-api-feed:v1
+  - docker build -t udagram-frontend ./udagram-frontend
+  - docker tag udagram-frontend quang1/udagram-frontend:v1
+  - docker build -t reverseproxy ./reverseproxy
+  - docker tag reverseproxy quang1/reverseproxy:v1
+
 
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push quang1/udagram-api-user:v1
+  - docker push quang1/udagram-api-feed:v1
+  - docker push quang1/udagram-frontend:v1
+  - docker push quang1/reverseproxy:v1
+
