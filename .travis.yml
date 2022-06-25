@@ -16,11 +16,11 @@ before_script:
 script:
   - docker --version 
   - docker build -t udagram-frontend ./udagram-frontend
-  - docker tag udagram-frontend quang1/udagram-frontend:v3
+  - docker tag udagram-frontend quang1/udagram-frontend:v4
 
 
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push quang1/udagram-frontend:v3
+  - docker push quang1/udagram-frontend:v4
 
