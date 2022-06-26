@@ -40,5 +40,6 @@ venv/
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
-aws-secret.yml
-env-secret.yml
+# env
+deployment/aws-secret.yml
+deployment/env-secret.yml
